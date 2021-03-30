@@ -4,3 +4,4 @@ namespace: laz-nginx
 resources:
 - namespace.yaml
 - nginx.yaml
+- pvc.yaml
