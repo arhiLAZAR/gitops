@@ -9,6 +9,7 @@ spec:
   interval: 1m0s
   ref:
     branch: master
+    path: ./
   # secretRef:
   #   name: flux-system
   timeout: 20s
