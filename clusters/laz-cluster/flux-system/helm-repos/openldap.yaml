@@ -2,15 +2,12 @@
 apiVersion: source.toolkit.fluxcd.io/v1beta1
 kind: GitRepository
 metadata:
-  name: laz-openldap
+  name: helm-openldap
   namespace: flux-system
 spec:
   gitImplementation: go-git
   interval: 1m0s
   ref:
     branch: master
-    path: ./
-  # secretRef:
-  #   name: flux-system
   timeout: 20s
   url: https://github.com/arhiLAZAR/helm-openldap.git
