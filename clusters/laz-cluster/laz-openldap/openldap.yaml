@@ -28,10 +28,10 @@ spec:
         loadBalancerIP: '185.10.184.83'
       slave:
         loadBalancerIP: '185.10.184.84'
-    env:
-      LDAP_REMOVE_CONFIG_AFTER_SETUP: "false"
-      LDAP_ORGANISATION: "Selectel"
-      LDAP_DOMAIN: "selectel.org"
+    # env:
+    #   LDAP_REMOVE_CONFIG_AFTER_SETUP: "false"
+    #   LDAP_ORGANISATION: "Selectel"
+    #   LDAP_DOMAIN: "selectel.org"
     fluentd:
       enabled: true
       splunk:
