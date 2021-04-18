@@ -22,12 +22,14 @@ spec:
   values:
     masterReplicaCount: 2
     slaveReplicaCount: 2
+
     service:
       type: LoadBalancer
       master:
         loadBalancerIP: '185.10.184.83'
       slave:
         loadBalancerIP: '185.10.184.84'
+
     env:
       LDAP_ORGANISATION: "Selectel"
       LDAP_DOMAIN: "selectel.org"
@@ -38,3 +40,5 @@ spec:
         host: 185.10.184.212
         port: 8088
         insecure_ssl: true
+
+    logLevel: trace
