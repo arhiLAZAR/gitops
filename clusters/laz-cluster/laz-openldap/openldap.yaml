@@ -29,7 +29,7 @@ spec:
       slave:
         loadBalancerIP: '185.10.184.84'
     env:
-      KEEP_EXISTING_CONFIG: "true"
+      LDAP_REMOVE_CONFIG_AFTER_SETUP: "false"
       LDAP_ORGANISATION: "Selectel"
       LDAP_DOMAIN: "selectel.org"
     fluentd:
