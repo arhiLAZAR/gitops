@@ -4,3 +4,4 @@ namespace: openldap
 resources:
 - namespace.yaml
 - openldap.yaml
+- values.secret.yaml
