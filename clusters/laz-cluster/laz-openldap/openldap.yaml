@@ -40,5 +40,3 @@ spec:
         host: 185.10.184.212
         port: 8088
         insecure_ssl: true
-
-    logLevel: trace
