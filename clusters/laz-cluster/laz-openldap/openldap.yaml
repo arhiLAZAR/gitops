@@ -15,6 +15,10 @@ spec:
         name: helm-openldap
         namespace: flux-system
       interval: 10m
+  valuesFrom:
+    - kind: Secret
+      name: openldap-values
+      valuesKey: values.yaml
   values:
     masterReplicaCount: 2
     slaveReplicaCount: 2
