@@ -31,8 +31,6 @@ spec:
     env:
       LDAP_ORGANISATION: "Selectel"
       LDAP_DOMAIN: "selectel.org"
-    adminPassword: Not@SecureP@ssw0rd
-    configPassword: Not@SecureP@ssw0rd
     fluentd:
       enabled: true
       splunk:
