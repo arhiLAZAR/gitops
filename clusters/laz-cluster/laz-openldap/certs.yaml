@@ -3,6 +3,7 @@ apiVersion: cert-manager.io/v1
 kind: Certificate
 metadata:
   name: acme-ldap-tls-master
+  namespace: openldap
 spec:
   secretName: acme-ldap-tls-master
   issuerRef:
@@ -16,6 +17,7 @@ apiVersion: cert-manager.io/v1
 kind: Certificate
 metadata:
   name: acme-ldap-tls-slave
+  namespace: openldap
 spec:
   secretName: acme-ldap-tls-slave
   issuerRef:
