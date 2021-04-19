@@ -12,7 +12,7 @@ spec:
     solvers:
     - dns01:
         webhook:
-          groupName: acme.selectel.ru
+          groupName: ldap.arhilazar.ru
           solverName: selectel
           config:
             apiKeySecretRef:
