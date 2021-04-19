@@ -43,3 +43,6 @@ spec:
 
     images:
       pullPolicy: IfNotPresent
+
+    tls:
+      enabled: true
