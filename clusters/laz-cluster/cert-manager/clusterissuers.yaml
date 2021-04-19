@@ -22,28 +22,3 @@ spec:
             timeout: 30
             propagationTimeout: 90
             pollingInterval: 2
-
----
-apiVersion: cert-manager.io/v1
-kind: ClusterIssuer
-metadata:
-  name: letsencrypt-stag
-spec:
-  acme:
-    server: https://acme-staging-v02.api.letsencrypt.org/directory
-    email: arhiLAZAR@gmail.com
-    privateKeySecretRef:
-      name: letsencrypt-stag
-    solvers:
-    - dns01:
-        webhook:
-          groupName: acme.selectel.ru
-          solverName: selectel
-          config:
-            apiKeySecretRef:
-              name: selectel-api-key
-              key: token
-            ttl: 60
-            timeout: 30
-            propagationTimeout: 90
-            pollingInterval: 2
