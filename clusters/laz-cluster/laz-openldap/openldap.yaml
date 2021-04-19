@@ -46,3 +46,5 @@ spec:
 
     tls:
       enabled: true
+      secretMaster: "acme-ldap-tls-master"
+      secretSlave:  "acme-ldap-tls-slave"
