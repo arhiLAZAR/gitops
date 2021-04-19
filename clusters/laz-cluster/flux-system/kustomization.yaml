@@ -4,3 +4,4 @@ resources:
 - gotk-components.yaml
 - gotk-sync.yaml
 - helm-repos/openldap.yaml
+- helm-repos/cert-manager-webhook-selectel.yaml
