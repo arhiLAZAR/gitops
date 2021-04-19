@@ -5,3 +5,4 @@ resources:
 - namespace.yaml
 - openldap.yaml
 - values.secret.yaml
+- certs.yaml
