@@ -1,0 +1,35 @@
+---
+apiVersion: helm.toolkit.fluxcd.io/v2beta1
+kind: HelmRelease
+metadata:
+  name: cert-manager
+spec:
+  interval: 10m
+  chart:
+    spec:
+      chart: cert-manager
+      version: v1.3.1
+      sourceRef:
+        kind: HelmRepository
+        name: jetstack
+        namespace: flux-system
+      interval: 10m
+  values:
+    global:
+      rbac:
+        create: true
+    podSecurityPolicy:
+      enabled: true
+    replicaCount: 2
+    extraArgs:
+    - --enable-certificate-owner-ref=true
+    prometheus:
+      enabled: false
+      servicemonitor:
+        enabled: true
+        prometheusInstance: default
+        targetPort: 9402
+        path: /metrics
+        interval: 60s
+        scrapeTimeout: 30s
+        labels: {}
