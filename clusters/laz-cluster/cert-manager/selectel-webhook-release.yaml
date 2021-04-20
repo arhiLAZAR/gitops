@@ -16,4 +16,4 @@ spec:
   values:
     image:
       repository: selectel/cert-manager-webhook-selectel
-      # tag: "1.1.0"
+      tag: "1.1.0"
