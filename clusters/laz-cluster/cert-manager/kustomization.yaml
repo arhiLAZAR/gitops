@@ -5,7 +5,7 @@ resources:
 - namespace.yaml
 # cert-manager crds & helmrelease
 - cert-manager.crds.yaml
-# - cert-manager-release.yaml
+- cert-manager-release.yaml
 # selecteel-dns-webhook
 # - selectel-api-key.secret.yaml
 # - selectel-webhook-release.yaml
