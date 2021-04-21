@@ -25,6 +25,8 @@ spec:
     replicaCount: 2
     extraArgs:
     - --enable-certificate-owner-ref=true
+    webhook:
+      hostNetwork: true
     prometheus:
       enabled: false
       servicemonitor:
