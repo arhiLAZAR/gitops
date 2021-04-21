@@ -25,6 +25,7 @@ spec:
     - --enable-certificate-owner-ref=true
     webhook:
       hostNetwork: true
+      securePort: 10260
     prometheus:
       enabled: false
       servicemonitor:
