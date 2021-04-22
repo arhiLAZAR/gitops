@@ -48,3 +48,5 @@ spec:
       enabled: true
       secretMaster: "acme-ldap-tls-master"
       secretSlave:  "acme-ldap-tls-slave"
+      CA:
+        enabled: false
