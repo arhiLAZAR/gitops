@@ -13,7 +13,7 @@ spec:
     - dns01:
         webhook:
           groupName: acme.selectel.ru
-          # solverName: selectel
+          solverName: selectel
           config:
             apiKeySecretRef:
               name: selectel-api-key
@@ -38,7 +38,7 @@ spec:
     - dns01:
         webhook:
           groupName: acme.selectel.ru
-          # solverName: selectel
+          solverName: selectel
           config:
             apiKeySecretRef:
               name: selectel-api-key
