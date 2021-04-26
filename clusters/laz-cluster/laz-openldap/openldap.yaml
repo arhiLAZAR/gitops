@@ -46,6 +46,7 @@ spec:
 
     tls:
       enabled: true
+      getCertsFromCertManager: true
       secretMaster: "acme-ldap-tls-master"
       secretSlave:  "acme-ldap-tls-slave"
       CA:
