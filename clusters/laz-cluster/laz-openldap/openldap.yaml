@@ -50,5 +50,3 @@ spec:
       secretSlave:  "acme-ldap-tls-slave"
       CA:
         enabled: false
-
-    logLevel: trace
