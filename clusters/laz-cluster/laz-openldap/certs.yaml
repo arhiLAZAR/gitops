@@ -10,7 +10,7 @@ spec:
     name: letsencrypt-prod
     kind: ClusterIssuer
   dnsNames:
-  - master.ldap.arhilazar.ru
+  - master-new.ldap.arhilazar.ru
 
 ---
 apiVersion: cert-manager.io/v1
@@ -24,4 +24,4 @@ spec:
     name: letsencrypt-prod
     kind: ClusterIssuer
   dnsNames:
-  - slave.ldap.arhilazar.ru
+  - slave-new.ldap.arhilazar.ru
