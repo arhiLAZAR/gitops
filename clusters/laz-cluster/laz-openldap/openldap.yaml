@@ -34,6 +34,11 @@ spec:
       LDAP_ORGANISATION: "Selectel"
       LDAP_DOMAIN: "selectel.org"
 
+    probes:
+      ldapmodifyCheck:
+        enabled: true
+        baseDomain: "dc=selectel,dc=org"
+
     fluentd:
       enabled: true
       splunk:
