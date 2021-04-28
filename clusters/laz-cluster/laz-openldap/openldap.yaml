@@ -49,6 +49,9 @@ spec:
     images:
       pullPolicy: IfNotPresent
 
+    replication:
+      enableInterServerTLS: false
+
     tls:
       enabled: true
       getCertsFromCertManager: true
