@@ -52,6 +52,9 @@ spec:
     replication:
       enableInterServerTLS: false
 
+    nodeSelector:
+      node-role.kubernetes.io/master: ""
+
     tls:
       enabled: true
       getCertsFromCertManager: true
