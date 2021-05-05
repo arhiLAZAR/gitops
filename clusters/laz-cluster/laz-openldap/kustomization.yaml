@@ -3,6 +3,6 @@ kind: Kustomization
 namespace: openldap
 resources:
 - namespace.yaml
-- openldap.yaml
+- helmrelease.yaml
 - values.secret.yaml
 - certs.yaml
