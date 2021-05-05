@@ -60,6 +60,24 @@ spec:
         operator: "Exists"
         effect: "NoSchedule"
 
+    affinity:
+      master: |
+        nodeAffinity:
+          requiredDuringSchedulingIgnoredDuringExecution:
+            nodeSelectorTerms:
+            - matchExpressions:
+              - key : "node-role.kubernetes.io/master"
+                operator: Exists
+
+      slave: |
+        nodeAffinity:
+          requiredDuringSchedulingIgnoredDuringExecution:
+            nodeSelectorTerms:
+            - matchExpressions:
+              - key : "node-role.kubernetes.io/master"
+                operator: Exists
+
+
     tls:
       enabled: true
       getCertsFromCertManager: true
