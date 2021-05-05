@@ -70,6 +70,13 @@ spec:
 
     affinity:
       master: |
+        podAntiAffinity:
+          requiredDuringSchedulingIgnoredDuringExecution:
+          - topologyKey: kubernetes.io/hostname
+            labelSelector:
+              matchLabels:
+                app: {{ template "openldap.fullname" . }}-master
+                release: {{ .Release.Name }}
         nodeAffinity:
           requiredDuringSchedulingIgnoredDuringExecution:
             nodeSelectorTerms:
@@ -78,6 +85,13 @@ spec:
                 operator: Exists
 
       slave: |
+        podAntiAffinity:
+          requiredDuringSchedulingIgnoredDuringExecution:
+          - topologyKey: kubernetes.io/hostname
+            labelSelector:
+              matchLabels:
+                app: {{ template "openldap.fullname" . }}-slave
+                release: {{ .Release.Name }}
         nodeAffinity:
           requiredDuringSchedulingIgnoredDuringExecution:
             nodeSelectorTerms:
