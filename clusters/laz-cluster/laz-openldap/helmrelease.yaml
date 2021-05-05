@@ -53,12 +53,20 @@ spec:
       enableInterServerTLS: false
 
     nodeSelector:
-      node-role.kubernetes.io/master: ""
+      master:
+        node-role.kubernetes.io/master: ""
+      slave:
+        node-role.kubernetes.io/master: ""
 
     tolerations:
-      - key: "node-role.kubernetes.io/master"
-        operator: "Exists"
-        effect: "NoSchedule"
+      master:
+        - key: "node-role.kubernetes.io/master"
+          operator: "Exists"
+          effect: "NoSchedule"
+      slave:
+        - key: "node-role.kubernetes.io/master"
+          operator: "Exists"
+          effect: "NoSchedule"
 
     affinity:
       master: |
