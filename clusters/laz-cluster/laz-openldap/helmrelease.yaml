@@ -8,7 +8,7 @@ spec:
   interval: 1m
   chart:
     spec:
-      chart: charts/openldap
+      chart: ./
       version: 2.1.2
       sourceRef:
         kind: GitRepository
