@@ -50,7 +50,8 @@ spec:
     #   pullPolicy: IfNotPresent
 
     replication:
-      enableInterServerTLS: false
+      tls_reqcert: "allow"
+      timeout: 10
 
     # nodeSelector:
     #   master:
