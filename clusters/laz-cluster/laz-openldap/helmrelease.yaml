@@ -52,52 +52,52 @@ spec:
     replication:
       enableInterServerTLS: false
 
-    nodeSelector:
-      master:
-        node-role.kubernetes.io/master: ""
-      slave:
-        node-role.kubernetes.io/master: ""
+    # nodeSelector:
+    #   master:
+    #     node-role.kubernetes.io/master: ""
+    #   slave:
+    #     node-role.kubernetes.io/master: ""
 
-    tolerations:
-      master:
-        - key: "node-role.kubernetes.io/master"
-          operator: "Exists"
-          effect: "NoSchedule"
-      slave:
-        - key: "node-role.kubernetes.io/master"
-          operator: "Exists"
-          effect: "NoSchedule"
+    # tolerations:
+    #   master:
+    #     - key: "node-role.kubernetes.io/master"
+    #       operator: "Exists"
+    #       effect: "NoSchedule"
+    #   slave:
+    #     - key: "node-role.kubernetes.io/master"
+    #       operator: "Exists"
+    #       effect: "NoSchedule"
 
-    affinity:
-      master: |
-        podAntiAffinity:
-          requiredDuringSchedulingIgnoredDuringExecution:
-          - topologyKey: kubernetes.io/hostname
-            labelSelector:
-              matchLabels:
-                app: {{ template "openldap.fullname" . }}-master
-                release: {{ .Release.Name }}
-        nodeAffinity:
-          requiredDuringSchedulingIgnoredDuringExecution:
-            nodeSelectorTerms:
-            - matchExpressions:
-              - key : "node-role.kubernetes.io/master"
-                operator: Exists
+    # affinity:
+    #   master: |
+    #     podAntiAffinity:
+    #       requiredDuringSchedulingIgnoredDuringExecution:
+    #       - topologyKey: kubernetes.io/hostname
+    #         labelSelector:
+    #           matchLabels:
+    #             app: {{ template "openldap.fullname" . }}-master
+    #             release: {{ .Release.Name }}
+    #     nodeAffinity:
+    #       requiredDuringSchedulingIgnoredDuringExecution:
+    #         nodeSelectorTerms:
+    #         - matchExpressions:
+    #           - key : "node-role.kubernetes.io/master"
+    #             operator: Exists
 
-      slave: |
-        podAntiAffinity:
-          requiredDuringSchedulingIgnoredDuringExecution:
-          - topologyKey: kubernetes.io/hostname
-            labelSelector:
-              matchLabels:
-                app: {{ template "openldap.fullname" . }}-slave
-                release: {{ .Release.Name }}
-        nodeAffinity:
-          requiredDuringSchedulingIgnoredDuringExecution:
-            nodeSelectorTerms:
-            - matchExpressions:
-              - key : "node-role.kubernetes.io/master"
-                operator: Exists
+    #   slave: |
+    #     podAntiAffinity:
+    #       requiredDuringSchedulingIgnoredDuringExecution:
+    #       - topologyKey: kubernetes.io/hostname
+    #         labelSelector:
+    #           matchLabels:
+    #             app: {{ template "openldap.fullname" . }}-slave
+    #             release: {{ .Release.Name }}
+    #     nodeAffinity:
+    #       requiredDuringSchedulingIgnoredDuringExecution:
+    #         nodeSelectorTerms:
+    #         - matchExpressions:
+    #           - key : "node-role.kubernetes.io/master"
+    #             operator: Exists
 
 
     tls:
