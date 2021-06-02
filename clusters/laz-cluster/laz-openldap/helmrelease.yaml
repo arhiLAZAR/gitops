@@ -46,8 +46,8 @@ spec:
         port: 8088
         insecure_ssl: true
 
-    # images:
-    #   pullPolicy: IfNotPresent
+    images:
+      pullPolicy: IfNotPresent
 
     replication:
       tls_reqcert: "allow"
