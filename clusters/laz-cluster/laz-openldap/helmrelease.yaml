@@ -53,6 +53,9 @@ spec:
       tls_reqcert: "allow"
       timeout: 10
 
+    persistence:
+      enabled: false
+
     # nodeSelector:
     #   master:
     #     node-role.kubernetes.io/master: ""
