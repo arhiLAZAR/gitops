@@ -145,16 +145,16 @@ spec:
             spki4cErx5z481+oghLrGREt
             -----END CERTIFICATE-----
 
-backup:
-  enabled: true
-  mode: "restore" # Valid modes: create, restore
-  createBackupSchedule: "* * * * *"
-  adminUser: cn=admin,dc=selectel,dc=org
-  masterHost: "ldaps://master.ldap.arhilazar.ru:636"
-  slaveHost: "ldaps://slave.ldap.arhilazar.ru:636"
-  s3:
-    provider: "other"
-    endpoint: "https://s3.selcdn.ru"
-    region: "ru-1"
-  initialLdifs:
-    enabled: true
+    backup:
+      enabled: true
+      mode: "restore" # Valid modes: create, restore
+      createBackupSchedule: "* * * * *"
+      adminUser: cn=admin,dc=selectel,dc=org
+      masterHost: "ldaps://master.ldap.arhilazar.ru:636"
+      slaveHost: "ldaps://slave.ldap.arhilazar.ru:636"
+      s3:
+        provider: "other"
+        endpoint: "https://s3.selcdn.ru"
+        region: "ru-1"
+      initialLdifs:
+        enabled: true
