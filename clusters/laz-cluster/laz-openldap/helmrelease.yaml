@@ -161,3 +161,6 @@ spec:
         region: "ru-1"
       initialLdifs:
         enabled: true
+
+    monitoring:
+      enabled: true
