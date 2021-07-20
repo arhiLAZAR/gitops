@@ -1,0 +1,13 @@
+---
+apiVersion: source.toolkit.fluxcd.io/v1beta1
+kind: GitRepository
+metadata:
+  name: cert-manager-webhook-selectel
+  namespace: flux-system
+spec:
+  gitImplementation: go-git
+  interval: 10m0s
+  ref:
+    branch: master
+  timeout: 20s
+  url: https://github.com/selectel/cert-manager-webhook-selectel.git
