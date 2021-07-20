@@ -6,3 +6,4 @@ resources:
 - helm-repos/cert-manager-webhook-selectel.yaml
 - helm-repos/k8s-at-home.yaml
 - helm-repos/jetstack.yaml
+- helm-repos/bitnami.yaml
