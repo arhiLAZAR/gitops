@@ -9,4 +9,4 @@ resources:
 # # selecteel-dns-webhook
 - selectel-api-key.secret.yaml
 - selectel-webhook-release.yaml
-- clusterissuers.yaml
+# - clusterissuers.yaml
