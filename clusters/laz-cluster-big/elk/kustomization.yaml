@@ -4,3 +4,4 @@ namespace: elk
 resources:
 - namespace.yaml
 - elasticsearch.yaml
+- kibana.yaml
