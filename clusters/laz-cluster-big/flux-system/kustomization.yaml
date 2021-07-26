@@ -8,3 +8,4 @@ resources:
 - helm-repos/jetstack.yaml
 - helm-repos/bitnami.yaml
 - helm-repos/elastic.yaml
+- helm-repos/openebs.yaml
