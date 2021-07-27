@@ -19,3 +19,12 @@ spec:
     service:
       type: LoadBalancer
       loadBalancerIP: "185.10.184.83"
+      ports:
+        - name: beats
+          port: 5044
+          protocol: TCP
+          targetPort: 5044
+        - name: http
+          port: 8080
+          protocol: TCP
+          targetPort: 8080
