@@ -20,11 +20,7 @@ spec:
       type: LoadBalancer
       loadBalancerIP: "185.10.184.83"
       ports:
-        - name: beats
-          port: 5044
-          protocol: TCP
-          targetPort: 5044
         - name: http
-          port: 8080
+          port: 9600
+          targetPort: 9600
           protocol: TCP
-          targetPort: 8080
