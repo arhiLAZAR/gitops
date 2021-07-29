@@ -19,6 +19,7 @@ spec:
     service:
       type: LoadBalancer
       loadBalancerIP: "185.10.184.82"
+      port: 443
 
     elasticsearchHosts: "https://elasticsearch-master:9200"
 
