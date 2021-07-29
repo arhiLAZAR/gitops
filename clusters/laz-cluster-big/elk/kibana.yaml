@@ -20,7 +20,7 @@ spec:
       type: LoadBalancer
       loadBalancerIP: "185.10.184.82"
 
-    elasticsearchHosts: "https://security-master:9200"
+    elasticsearchHosts: "https://elasticsearch-master:9200"
 
     extraEnvs:
       - name: 'ELASTICSEARCH_USERNAME'
