@@ -1,0 +1,61 @@
+---
+apiVersion: helm.toolkit.fluxcd.io/v2beta1
+kind: HelmRelease
+metadata:
+  name: ingress-nginx
+  namespace: ingress-nginx
+spec:
+  interval: 10m
+  chart:
+    spec:
+      chart: ingress-nginx
+      version: 3.33.0
+      sourceRef:
+        kind: HelmRepository
+        name: ingress-nginx
+        namespace: flux-system
+      interval: 10m
+  values:
+    podSecurityPolicy:
+      enabled: true
+    rbac:
+      create: true
+    serviceAccount:
+      create: true
+    defaultBackend:
+      enabled: true
+    controller:
+      kind: DaemonSet
+      admissionWebhooks:
+        enabled: false
+      updateStrategy:
+        type: RollingUpdate
+        rollingUpdate:
+          maxUnavailable: 1
+      ingressClass: nginx
+      publishService:
+        enabled: true
+      service:
+        enabled: true
+        type: LoadBalancer
+        loadBalancerIP: "185.10.184.83"
+        enableHttp: true
+        externalTrafficPolicy: "Local"
+      extraArgs:
+        enable-ssl-chain-completion: true
+      config:
+        map-hash-bucket-size: "256"
+        client-body-buffer-size: 128M
+        proxy-buffer-size: "16k"
+        proxy-body-size: 1G
+        server-tokens: "false"
+        ssl-redirect: "true"
+        use-forwarded-headers: "true"
+        compute-full-forwarded-for: "true"
+        proxy-add-original-uri-header: "true"
+        upstream-keepalive-connections: "50"
+        proxy-connect-timeout: "3"
+        proxy-next-upstream: "error timeout http_502 http_503 http_504"
+        proxy-next-upstream-timeout: "10"
+        http-snippet: |
+          proxy_ignore_client_abort on;
