@@ -22,23 +22,17 @@ spec:
         xpack.monitoring.enabled: true
         xpack.monitoring.elasticsearch.username: '${ELASTICSEARCH_USERNAME}'
         xpack.monitoring.elasticsearch.password: '${ELASTICSEARCH_PASSWORD}'
-        xpack.monitoring.elasticsearch.hosts: ["https://elasticsearch-master:9200"]
-        xpack.monitoring.elasticsearch.ssl.certificate_authority: /usr/share/logstash/config/certs/elastic-certificate.crt
+        xpack.monitoring.elasticsearch.hosts: ["http://elasticsearch-master:9200"]
     logstashPipeline:
       uptime.conf: |
         input { exec { command => "uptime" interval => 30 } }
         output { elasticsearch {
-          hosts => ["https://elasticsearch-master:9200"]
-          cacert => "/usr/share/logstash/config/certs/elastic-certificate.crt"
+          hosts => ["http://elasticsearch-master:9200"]
           user => '${ELASTICSEARCH_USERNAME}'
           password => '${ELASTICSEARCH_PASSWORD}'
           index => "logstash"
           }
         }
-    secretMounts:
-      - name: elastic-certificate-crt
-        secretName: elastic-certificate-crt
-        path: /usr/share/logstash/config/certs
 
     extraEnvs:
       - name: 'ELASTICSEARCH_USERNAME'
