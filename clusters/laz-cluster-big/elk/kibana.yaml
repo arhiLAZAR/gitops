@@ -56,3 +56,10 @@ spec:
       - name: elastic-certificate-pem
         secretName: elastic-certificate-pem
         path: /usr/share/kibana/config/certs
+
+    ingress:
+      enabled: true
+      hosts:
+        - host: kibana.arhilazar.ru
+          paths:
+            - path: /
