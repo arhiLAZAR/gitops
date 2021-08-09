@@ -29,6 +29,15 @@ spec:
           secretKeyRef:
             name: elastic-credentials
             key: password
+      - name: 'KIBANA_ENCRYPTION_KEY'
+        valueFrom:
+          secretKeyRef:
+            name: kibana
+            key: encryptionkey
+
+    kibanaConfig:
+      kibana.yml: |
+        xpack.security.encryptionKey: ${KIBANA_ENCRYPTION_KEY}
 
     ingress:
       enabled: true
