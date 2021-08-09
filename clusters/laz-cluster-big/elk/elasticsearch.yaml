@@ -22,15 +22,3 @@ spec:
       resources:
         requests:
           storage: 1Gi
-
-    extraEnvs:
-      - name: ELASTIC_PASSWORD
-        valueFrom:
-          secretKeyRef:
-            name: elastic-credentials
-            key: password
-      - name: ELASTIC_USERNAME
-        valueFrom:
-          secretKeyRef:
-            name: elastic-credentials
-            key: username

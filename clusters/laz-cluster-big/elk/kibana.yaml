@@ -18,27 +18,6 @@ spec:
   values:
     elasticsearchHosts: "http://elasticsearch-master:9200"
 
-    extraEnvs:
-      - name: 'ELASTICSEARCH_USERNAME'
-        valueFrom:
-          secretKeyRef:
-            name: elastic-credentials
-            key: username
-      - name: 'ELASTICSEARCH_PASSWORD'
-        valueFrom:
-          secretKeyRef:
-            name: elastic-credentials
-            key: password
-      - name: 'KIBANA_ENCRYPTION_KEY'
-        valueFrom:
-          secretKeyRef:
-            name: kibana
-            key: encryptionkey
-
-    kibanaConfig:
-      kibana.yml: |
-        xpack.security.encryptionKey: ${KIBANA_ENCRYPTION_KEY}
-
     ingress:
       enabled: true
       hosts:
