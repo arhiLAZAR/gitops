@@ -40,6 +40,22 @@ spec:
           index => "logstash"
           }
         }
+      test_pipe.conf: |
+        input {
+          tcp {
+            port => 12345
+            codec => json
+          }
+        }
+
+        output {
+          elasticsearch {
+            hosts => ["http://elasticsearch-master:9200"]
+            user => '${ELASTICSEARCH_USERNAME}'
+            password => '${ELASTICSEARCH_PASSWORD}'
+            index => "test_pipe_from_logstash"
+          }
+        }
 
     extraEnvs:
       - name: 'ELASTICSEARCH_USERNAME'
