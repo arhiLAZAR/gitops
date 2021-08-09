@@ -45,3 +45,10 @@ spec:
           secretKeyRef:
             name: elastic-credentials
             key: password
+
+    ingress:
+      enabled: true
+      hosts:
+        - host: logstash.arhilazar.ru
+          paths:
+            - path: /
