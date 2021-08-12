@@ -24,6 +24,14 @@ spec:
           port: 9600
           targetPort: 9600
           protocol: TCP
+        - name: gelf_tcp
+          port: 12201
+          targetPort: 12201
+          protocol: TCP
+        - name: gelf_udp
+          port: 12201
+          targetPort: 12201
+          protocol: UDP
 
     logstashConfig:
       logstash.yml: |
