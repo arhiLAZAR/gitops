@@ -42,9 +42,8 @@ spec:
         }
       test_pipe.conf: |
         input {
-          tcp {
-            port => 12345
-            codec => json
+          gelf {
+            port => 12201
           }
         }
 
