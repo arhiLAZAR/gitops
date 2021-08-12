@@ -54,6 +54,7 @@ spec:
         input {
           gelf {
             port => 12201
+            use_tcp => true
           }
         }
 
