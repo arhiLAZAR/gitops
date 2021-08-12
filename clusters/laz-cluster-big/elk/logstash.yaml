@@ -17,6 +17,8 @@ spec:
       interval: 10m
   values:
     service:
+      type: LoadBalancer
+      loadBalancerIP: "185.10.184.82"
       ports:
         - name: http
           port: 9600
@@ -67,11 +69,3 @@ spec:
           secretKeyRef:
             name: elastic-credentials
             key: password
-
-    ingress:
-      enabled: true
-      hosts:
-        - host: logstash.arhilazar.ru
-          paths:
-            - path: /
-              servicePort: 9600
