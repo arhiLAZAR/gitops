@@ -33,12 +33,12 @@ spec:
           targetPort: 12201
           protocol: UDP
         - name: syslog-tcp
-          port: 514
-          targetPort: 514
+          port: 1514
+          targetPort: 1514
           protocol: TCP
         - name: syslog-udp
-          port: 514
-          targetPort: 514
+          port: 1514
+          targetPort: 1514
           protocol: UDP
 
     logstashConfig:
@@ -68,7 +68,7 @@ spec:
       default_syslog.conf: |
         input {
           syslog {
-            port => 514
+            port => 1514
           }
         }
 
