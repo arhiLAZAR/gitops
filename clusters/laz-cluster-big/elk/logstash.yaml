@@ -50,7 +50,7 @@ spec:
           index => "logstash"
           }
         }
-      test_pipe.conf: |
+      default_gelf.conf: |
         input {
           gelf {
             port => 12201
