@@ -57,6 +57,12 @@ spec:
             use_tcp => true
           }
         }
+      default_syslog.conf: |
+        input {
+          syslog {
+            port => 514
+          }
+        }
 
         output {
           elasticsearch {
