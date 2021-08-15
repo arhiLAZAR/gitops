@@ -32,6 +32,14 @@ spec:
           port: 12201
           targetPort: 12201
           protocol: UDP
+        - name: syslog-tcp
+          port: 514
+          targetPort: 514
+          protocol: TCP
+        - name: syslog-udp
+          port: 514
+          targetPort: 514
+          protocol: UDP
 
     logstashConfig:
       logstash.yml: |
