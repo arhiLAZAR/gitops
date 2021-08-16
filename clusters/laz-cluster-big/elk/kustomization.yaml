@@ -7,3 +7,4 @@ resources:
 - kibana.yaml
 - logstash.yaml
 - certs.yaml
+- certs.secret.yaml
