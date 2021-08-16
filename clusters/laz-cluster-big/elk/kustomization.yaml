@@ -6,5 +6,4 @@ resources:
 - elasticsearch.yaml
 - kibana.yaml
 - logstash.yaml
-- certs.yaml
 - certs.secret.yaml
