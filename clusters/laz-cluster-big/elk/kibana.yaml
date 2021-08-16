@@ -54,7 +54,7 @@ spec:
           paths:
             - path: /
       annotations:
-        cert-manager.io/cluster-issuer: letsencrypt-stag
+        cert-manager.io/cluster-issuer: letsencrypt-prod
       tls:
       - hosts:
         - kibana.arhilazar.ru
