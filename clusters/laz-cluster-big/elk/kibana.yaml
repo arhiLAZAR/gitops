@@ -53,3 +53,9 @@ spec:
         - host: kibana.arhilazar.ru
           paths:
             - path: /
+      annotations:
+        cert-manager.io/cluster-issuer: letsencrypt-stag
+      tls:
+      - hosts:
+        - kibana.arhilazar.ru
+        secretName: acme-ingress-elk-kibana
