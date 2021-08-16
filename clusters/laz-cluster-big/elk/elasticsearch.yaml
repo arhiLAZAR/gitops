@@ -53,3 +53,9 @@ spec:
         - host: elasticsearch.arhilazar.ru
           paths:
             - path: /
+      annotations:
+        cert-manager.io/cluster-issuer: letsencrypt-prod
+      tls:
+      - hosts:
+        - elasticsearch.arhilazar.ru
+        secretName: acme-ingress-elk-elasticsearch
