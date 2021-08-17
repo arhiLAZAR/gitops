@@ -16,6 +16,8 @@ spec:
         namespace: flux-system
       interval: 10m
   values:
+    replicas: 1
+
     service:
       type: LoadBalancer
       loadBalancerIP: "185.10.184.82"
