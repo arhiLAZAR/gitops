@@ -32,7 +32,7 @@ spec:
       - name: 'KIBANA_ENCRYPTION_KEY'
         valueFrom:
           secretKeyRef:
-            name: kibana
+            name: kibana-encryption-key
             key: encryptionkey
 
     kibanaConfig:
