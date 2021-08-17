@@ -23,6 +23,10 @@ spec:
 
     roles:
       master: "true"
+      ingest: "false"
+      data: "false"
+      remote_cluster_client: "false"
+      ml: "false"
 
     volumeClaimTemplate:
       storageClassName: openebs-hostpath
