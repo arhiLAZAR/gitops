@@ -4,6 +4,7 @@ namespace: elk
 resources:
 - namespace.yaml
 - elasticsearch-master.yaml
+- elasticsearch-data.yaml
 - kibana.yaml
 - logstash.yaml
 - certs.secret.yaml
