@@ -21,6 +21,9 @@ spec:
     clusterName: "elasticsearch"
     nodeGroup: "master"
 
+    roles:
+      master: "true"
+
     volumeClaimTemplate:
       storageClassName: openebs-hostpath
       accessModes: [ "ReadWriteOnce" ]
