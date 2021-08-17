@@ -3,7 +3,7 @@ kind: Kustomization
 namespace: elk
 resources:
 - namespace.yaml
-- elasticsearch.yaml
+- elasticsearch-master.yaml
 - kibana.yaml
 - logstash.yaml
 - certs.secret.yaml
