@@ -30,18 +30,10 @@ spec:
           port: 12201
           targetPort: 12201
           protocol: TCP
-        - name: gelf-udp
-          port: 12201
-          targetPort: 12201
-          protocol: UDP
         - name: syslog-tcp
           port: 1514
           targetPort: 1514
           protocol: TCP
-        - name: syslog-udp
-          port: 1514
-          targetPort: 1514
-          protocol: UDP
 
     persistence:
       enabled: true
