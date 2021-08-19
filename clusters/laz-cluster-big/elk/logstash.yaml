@@ -43,6 +43,15 @@ spec:
           targetPort: 1514
           protocol: UDP
 
+    persistence:
+      enabled: true
+    volumeClaimTemplate:
+      storageClassName: openebs-hostpath
+      accessModes: [ "ReadWriteOnce" ]
+      resources:
+        requests:
+          storage: 1Gi
+
     logstashConfig:
       logstash.yml: |
         http.host: 0.0.0.0
