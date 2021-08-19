@@ -16,7 +16,7 @@ spec:
         namespace: flux-system
       interval: 10m
   values:
-    replicas: 5
+    replicas: 3
 
     clusterName: "elasticsearch"
     nodeGroup: "data"
