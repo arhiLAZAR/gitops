@@ -66,15 +66,18 @@ spec:
           gelf {
             port => 12201
             use_tcp => true
+            type => gelf
           }
         }
 
         output {
-          elasticsearch {
-            hosts => ["http://elasticsearch-master:9200"]
-            user => '${ELASTICSEARCH_USERNAME}'
-            password => '${ELASTICSEARCH_PASSWORD}'
-            index => "default_gelf"
+          if [type] == "gelf" {
+            elasticsearch {
+              hosts => ["http://elasticsearch-master:9200"]
+              user => '${ELASTICSEARCH_USERNAME}'
+              password => '${ELASTICSEARCH_PASSWORD}'
+              index => "default_gelf"
+            }
           }
         }
 
@@ -82,15 +85,18 @@ spec:
         input {
           syslog {
             port => 1514
+            type => syslog
           }
         }
 
         output {
-          elasticsearch {
-            hosts => ["http://elasticsearch-master:9200"]
-            user => '${ELASTICSEARCH_USERNAME}'
-            password => '${ELASTICSEARCH_PASSWORD}'
-            index => "default_syslog"
+          if [type] == "syslog" {
+            elasticsearch {
+              hosts => ["http://elasticsearch-master:9200"]
+              user => '${ELASTICSEARCH_USERNAME}'
+              password => '${ELASTICSEARCH_PASSWORD}'
+              index => "default_syslog"
+            }
           }
         }
 
