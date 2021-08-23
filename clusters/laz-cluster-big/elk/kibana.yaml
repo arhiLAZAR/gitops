@@ -45,8 +45,8 @@ spec:
           verificationMode: certificate
 
     secretMounts:
-      - name: elastic-certificates-selfsigned
-        secretName: elastic-certificates-selfsigned
+      - name: elastic-certificates
+        secretName: elastic-certificates
         path: /usr/share/kibana/config/certs
 
     ingress:

@@ -66,6 +66,6 @@ spec:
 
 
     secretMounts:
-      - name: elastic-certificates-selfsigned
-        secretName: elastic-certificates-selfsigned
+      - name: elastic-certificates
+        secretName: elastic-certificates
         path: /usr/share/elasticsearch/config/certs
