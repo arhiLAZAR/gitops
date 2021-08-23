@@ -41,12 +41,12 @@ spec:
       kibana.yml: |
         xpack.security.encryptionKey: ${KIBANA_ENCRYPTION_KEY}
         elasticsearch.ssl:
-          certificateAuthorities: /usr/share/kibana/config/certs/elastic-certificate.pem
+          certificateAuthorities: /usr/share/kibana/config/certs/ca.crt
           verificationMode: certificate
 
     secretMounts:
-      - name: elastic-certificate-pem
-        secretName: elastic-certificate-pem
+      - name: elastic-certificates-selfsigned
+        secretName: elastic-certificates-selfsigned
         path: /usr/share/kibana/config/certs
 
     ingress:
