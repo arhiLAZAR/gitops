@@ -10,3 +10,4 @@ resources:
 - selectel-api-key.secret.yaml
 - selectel-webhook-release.yaml
 - clusterissuers.yaml
+- selfsigned-ca-clusterissuer.yaml
