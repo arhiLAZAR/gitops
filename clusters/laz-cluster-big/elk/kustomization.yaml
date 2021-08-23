@@ -8,3 +8,4 @@ resources:
 - kibana.yaml
 - logstash.yaml
 - creds.secret.yaml
+- certificates.yaml
