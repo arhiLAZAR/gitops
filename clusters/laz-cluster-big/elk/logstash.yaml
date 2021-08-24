@@ -50,7 +50,8 @@ spec:
         xpack.monitoring.enabled: true
         xpack.monitoring.elasticsearch.username: '${ELASTICSEARCH_USERNAME}'
         xpack.monitoring.elasticsearch.password: '${ELASTICSEARCH_PASSWORD}'
-        xpack.monitoring.elasticsearch.hosts: ["http://elasticsearch-master:9200"]
+        xpack.monitoring.elasticsearch.hosts: ["https://elasticsearch-master:9200"]
+        xpack.monitoring.elasticsearch.ssl.certificate_authority: /usr/share/logstash/config/certs/ca.crt
     logstashPipeline:
       uptime.conf: |
         input {
@@ -64,9 +65,10 @@ spec:
         output {
           if [type] == "uptime" {
             elasticsearch {
-              hosts => ["http://elasticsearch-master:9200"]
+              hosts => ["https://elasticsearch-master:9200"]
               user => '${ELASTICSEARCH_USERNAME}'
               password => '${ELASTICSEARCH_PASSWORD}'
+              cacert => "/usr/share/logstash/config/certs/ca.crt"
               index => "logstash_uptime"
             }
           }
@@ -84,9 +86,10 @@ spec:
         output {
           if [type] == "gelf" {
             elasticsearch {
-              hosts => ["http://elasticsearch-master:9200"]
+              hosts => ["https://elasticsearch-master:9200"]
               user => '${ELASTICSEARCH_USERNAME}'
               password => '${ELASTICSEARCH_PASSWORD}'
+              cacert => "/usr/share/logstash/config/certs/ca.crt"
               index => "default_gelf"
             }
           }
@@ -103,9 +106,10 @@ spec:
         output {
           if [type] == "syslog" {
             elasticsearch {
-              hosts => ["http://elasticsearch-master:9200"]
+              hosts => ["https://elasticsearch-master:9200"]
               user => '${ELASTICSEARCH_USERNAME}'
               password => '${ELASTICSEARCH_PASSWORD}'
+              cacert => "/usr/share/logstash/config/certs/ca.crt"
               index => "default_syslog"
             }
           }
@@ -122,3 +126,8 @@ spec:
           secretKeyRef:
             name: elastic-credentials
             key: password
+
+    secretMounts:
+      - name: elastic-certificates
+        secretName: elastic-certificates
+        path: /usr/share/logstash/config/certs
