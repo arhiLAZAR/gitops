@@ -11,6 +11,8 @@ spec:
   issuerRef:
     name: laz-ca-issuer
     kind: ClusterIssuer
+  duration: 87600h # 10y
+  renewBefore: 360h # 15d
   keystores:
     pkcs12:
       create: true
