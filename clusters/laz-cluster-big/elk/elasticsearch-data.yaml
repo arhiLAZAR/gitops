@@ -8,7 +8,7 @@ spec:
   chart:
     spec:
       chart: elasticsearch
-      version: v7.13.4
+      version: v7.14.0
       sourceRef:
         kind: HelmRepository
         name: elastic
