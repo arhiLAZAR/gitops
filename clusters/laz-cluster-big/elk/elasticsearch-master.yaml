@@ -84,3 +84,26 @@ spec:
       - hosts:
         - elasticsearch.arhilazar.ru
         secretName: acme-ingress-elk-elasticsearch
+
+    extraContainers:
+      - name: monitoring
+        image: quay.io/prometheuscommunity/elasticsearch-exporter:latest
+        ports:
+          - containerPort: 9114
+            name: metrics
+            protocol: TCP
+        env:
+          - name: ES_PASSWORD
+            valueFrom:
+              secretKeyRef:
+                name: elastic-credentials
+                key: password
+          - name: ES_USERNAME
+            valueFrom:
+              secretKeyRef:
+                name: elastic-credentials
+                key: username
+        args:
+          - '--es.uri=https://elasticsearch-master:9200'
+          - '--es.ssl-skip-verify'
+          - '--web.listen-address=:9114'
