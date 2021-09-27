@@ -75,3 +75,39 @@ spec:
       - name: elastic-certificates
         secretName: elastic-certificates
         path: /usr/share/elasticsearch/config/certs
+
+    extraContainers:
+      - name: monitoring
+        image: quay.io/prometheuscommunity/elasticsearch-exporter:master
+        ports:
+          - containerPort: 9114
+            name: metrics
+            protocol: TCP
+        env:
+          - name: ES_PASSWORD
+            valueFrom:
+              secretKeyRef:
+                name: elastic-credentials
+                key: password
+          - name: ES_USERNAME
+            valueFrom:
+              secretKeyRef:
+                name: elastic-credentials
+                key: username
+        args:
+          - '--es.uri=https://localhost:9200'
+          - '--es.ssl-skip-verify'
+          - '--web.listen-address=:9114'
+
+    # We use this post start lifecycle to ensure that the container with an exporter stars only after the main container
+    lifecycle:
+      postStart:
+        exec:
+          command:
+            - bash
+            - -c
+            - |
+              until curl -sko /dev/null https://localhost:9200
+              do
+                sleep 1
+              done
