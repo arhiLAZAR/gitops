@@ -87,7 +87,7 @@ spec:
 
     extraContainers:
       - name: monitoring
-        image: quay.io/prometheuscommunity/elasticsearch-exporter:latest
+        image: quay.io/prometheuscommunity/elasticsearch-exporter:master
         ports:
           - containerPort: 9114
             name: metrics
