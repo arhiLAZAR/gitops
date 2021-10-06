@@ -9,3 +9,4 @@ resources:
 - logstash.yaml
 - creds.secret.yaml
 - certificates.yaml
+- metricbeat.yaml
