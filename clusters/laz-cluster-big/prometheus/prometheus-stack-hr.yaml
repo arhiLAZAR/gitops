@@ -23,6 +23,7 @@ spec:
     prometheus-node-exporter:
       fullnameOverride: "prometheus-stack-node-exporter"
     prometheusSpec:
+      replicas: 2
       retention: 1w
       ruleSelector:
         matchLabels:
