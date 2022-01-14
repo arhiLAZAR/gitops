@@ -24,6 +24,7 @@ spec:
       fullnameOverride: "prometheus-stack-node-exporter"
     prometheusSpec:
       replicas: 2
+      externalUrl: http://prom.arhilazar.ru
       retention: 1w
       ruleSelector:
         matchLabels:
