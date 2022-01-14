@@ -18,3 +18,7 @@ spec:
     fullnameOverride: "prometheus-stack"
     grafana:
       enabled: false
+    kube-state-metrics:
+      fullnameOverride: "prometheus-stack-kube-state-metrics"
+    prometheus-node-exporter:
+      fullnameOverride: "prometheus-stack-node-exporter"
