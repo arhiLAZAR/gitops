@@ -11,3 +11,4 @@ resources:
 - helm-repos/openebs.yaml
 - helm-repos/ingress-nginx.yaml
 - helm-repos/prometheus.yaml
+- helm-repos/sealed-secrets.yaml
