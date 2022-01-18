@@ -22,16 +22,28 @@ spec:
       fullnameOverride: "prometheus-stack-kube-state-metrics"
     prometheus-node-exporter:
       fullnameOverride: "prometheus-stack-node-exporter"
-    prometheusSpec:
-      replicas: 2
-      externalUrl: http://prom.arhilazar.ru
-      retention: 1w
-      ruleSelector:
-        matchLabels:
-          prometheus: k8s
-          role: alert-rules
-      resources:
-        requests:
-          # memory: 12000Mi
-          memory: 2048Mi
-          cpu: 2
+    prometheus:
+      prometheusSpec:
+        replicas: 2
+        externalUrl: http://prom.arhilazar.ru
+        retention: 1w
+        ruleSelector:
+          matchLabels:
+            prometheus: k8s
+            role: alert-rules
+        resources:
+          requests:
+            # memory: 12000Mi
+            memory: 2048Mi
+            cpu: 2
+      ingress:
+        enabled: true
+        hosts: [ "prom.arhilazar.ru" ]
+        paths: [ "/" ]
+        pathType: ImplementationSpecific
+    alertmanager:
+      ingress:
+        enabled: true
+        hosts: [ "alert.arhilazar.ru" ]
+        paths: [ "/" ]
+        pathType: ImplementationSpecific
