@@ -5,3 +5,4 @@ resources:
 - namespace.yaml
 - prometheus-stack-hr.yaml
 - test-alerts.yaml
+- values-secret.yaml
