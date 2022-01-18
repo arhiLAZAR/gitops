@@ -42,3 +42,6 @@ spec:
         hosts: [ "alert.arhilazar.ru" ]
         paths: [ "/" ]
         pathType: ImplementationSpecific
+      config:
+        global:
+          resolve_timeout: 6m
