@@ -4,5 +4,6 @@ namespace: monitoring
 resources:
 - namespace.yaml
 - prometheus-stack-hr.yaml
-- test-alerts.yaml
+- test-alerts.yaml ##################
 - values-secret.yaml
+- grafana-cm.yaml
