@@ -45,8 +45,6 @@ spec:
         paths: [ "/" ]
         pathType: ImplementationSpecific
       config:
-        global:
-          http_config: {}
         route:
           receiver: 'slack_test'
           group_by:
