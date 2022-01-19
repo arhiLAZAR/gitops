@@ -65,8 +65,19 @@ spec:
         hosts: [ "grafana.arhilazar.ru" ]
         paths: [ "/" ]
         pathType: ImplementationSpecific
-      extraConfigmapMounts:
-        - name: grafana-config
-          mountPath: /etc/grafana/
-          configMap: grafana-config
-          readOnly: true
+      grafana.ini:
+        auth.ldap:
+          allow_sign_up: true
+          config_file: /etc/grafana/ldap.toml
+          enabled: true
+        analytics:
+          check_for_updates: true
+        grafana_net:
+          url: https://grafana.net
+        log:
+          mode: console
+        paths:
+          data: /var/lib/grafana/
+          logs: /var/log/grafana
+          plugins: /var/lib/grafana/plugins
+          provisioning: /etc/grafana/provisioning
