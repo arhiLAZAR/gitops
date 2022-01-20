@@ -19,6 +19,7 @@ spec:
       name: prom-stack-values
       valuesKey: values.yaml
   values:
+    fullnameOverride: "prom"
     prometheus:
       prometheusSpec:
         replicas: 2
