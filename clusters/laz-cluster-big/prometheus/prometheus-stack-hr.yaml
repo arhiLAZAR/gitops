@@ -61,6 +61,7 @@ spec:
               receiver: slack_test
             continue: true
     grafana:
+      fullnameOverride: "grafana"
       adminUser: admin
       ingress:
         enabled: true
@@ -95,5 +96,3 @@ spec:
       fullnameOverride: "node-exporter"
     kube-state-metrics:
       fullnameOverride: "kube-state-metrics"
-    grafana:
-      fullnameOverride: "grafana"
