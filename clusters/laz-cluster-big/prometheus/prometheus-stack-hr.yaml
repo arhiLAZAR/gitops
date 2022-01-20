@@ -85,6 +85,12 @@ spec:
           provisioning: /etc/grafana/provisioning
       ldap:
         enabled: true
+      persistence:
+        enabled: true
+        storageClassName: openebs-hostpath #######
+        accessModes:
+          - ReadWriteOnce
+        size: 10Gi
     prometheus-node-exporter:
       fullnameOverride: "node-exporter"
     kube-state-metrics:
