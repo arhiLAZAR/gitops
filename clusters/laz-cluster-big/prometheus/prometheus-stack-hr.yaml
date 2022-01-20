@@ -86,3 +86,5 @@ spec:
         enabled: true
     prometheus-node-exporter:
       fullnameOverride: "node-exporter"
+    kube-state-metrics:
+      fullnameOverride: "kube-state-metrics"
