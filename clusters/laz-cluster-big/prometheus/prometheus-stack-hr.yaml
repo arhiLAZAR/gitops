@@ -84,3 +84,5 @@ spec:
           provisioning: /etc/grafana/provisioning
       ldap:
         enabled: true
+    prometheus-node-exporter:
+      fullnameOverride: "node-exporter"
