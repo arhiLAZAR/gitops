@@ -34,6 +34,14 @@ spec:
             # memory: 12000Mi
             memory: 2048Mi
             cpu: 2
+        storageSpec:
+         volumeClaimTemplate:
+           spec:
+             storageClassName: openebs-hostpath #######
+             accessModes: [ "ReadWriteOnce" ]
+             resources:
+               requests:
+                 storage: 1Gi #######
       ingress:
         enabled: true
         hosts: [ "prom.arhilazar.ru" ]
