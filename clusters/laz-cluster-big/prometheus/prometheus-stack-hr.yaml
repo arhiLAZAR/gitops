@@ -60,6 +60,7 @@ spec:
               receiver: slack_test
             continue: true
     grafana:
+      adminUser: admin
       ingress:
         enabled: true
         hosts: [ "grafana.arhilazar.ru" ]
