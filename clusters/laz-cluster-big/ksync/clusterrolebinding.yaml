@@ -1,0 +1,15 @@
+apiVersion: rbac.authorization.k8s.io/v1
+kind: ClusterRoleBinding
+metadata:
+  labels:
+    app: ksync
+    name: ksync
+  name: ksync
+roleRef:
+  apiGroup: rbac.authorization.k8s.io
+  kind: ClusterRole
+  name: ksync
+subjects:
+- kind: ServiceAccount
+  name: ksync
+  namespace: kube-system

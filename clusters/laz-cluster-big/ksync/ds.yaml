@@ -1,0 +1,112 @@
+apiVersion: apps/v1
+kind: DaemonSet
+metadata:
+  labels:
+    app: ksync
+    name: ksync
+  name: ksync
+spec:
+  revisionHistoryLimit: 10
+  selector:
+    matchLabels:
+      app: ksync
+      name: ksync
+  template:
+    metadata:
+      labels:
+        app: ksync
+        name: ksync
+    spec:
+      containers:
+      - command:
+        - /radar
+        - --log-level=debug
+        - serve
+        env:
+        - name: RADAR_POD_NAME
+          valueFrom:
+            fieldRef:
+              apiVersion: v1
+              fieldPath: metadata.name
+        image: ksync/ksync:git-14ec9e2
+        imagePullPolicy: Always
+        name: ksync
+        ports:
+        - containerPort: 40321
+          name: grpc
+          protocol: TCP
+        resources: {}
+        terminationMessagePath: /dev/termination-log
+        terminationMessagePolicy: File
+        volumeMounts:
+        - mountPath: /var/run/docker.sock
+          name: dockersock
+      - command:
+        - /syncthing/syncthing
+        - -home
+        - /var/syncthing/config
+        - -gui-apikey
+        - ksync
+        - -verbose
+        image: ksync/ksync:git-14ec9e2
+        imagePullPolicy: Always
+        livenessProbe:
+          failureThreshold: 3
+          initialDelaySeconds: 10
+          periodSeconds: 10
+          successThreshold: 1
+          tcpSocket:
+            port: 8384
+          timeoutSeconds: 1
+        name: syncthing
+        ports:
+        - containerPort: 8384
+          name: rest
+          protocol: TCP
+        - containerPort: 22000
+          name: sync
+          protocol: TCP
+        readinessProbe:
+          failureThreshold: 3
+          initialDelaySeconds: 10
+          periodSeconds: 10
+          successThreshold: 1
+          tcpSocket:
+            port: 8384
+          timeoutSeconds: 1
+        resources: {}
+        terminationMessagePath: /dev/termination-log
+        terminationMessagePolicy: File
+        volumeMounts:
+        - mountPath: /var/lib/docker
+          name: dockerfs
+        - mountPath: /var/run/docker.sock
+          name: dockersock
+        - mountPath: /var/lib/kubelet
+          name: kubelet
+      dnsPolicy: ClusterFirst
+      nodeSelector:
+        beta.kubernetes.io/os: linux
+      restartPolicy: Always
+      schedulerName: default-scheduler
+      securityContext: {}
+      serviceAccount: ksync
+      serviceAccountName: ksync
+      terminationGracePeriodSeconds: 30
+      volumes:
+      - hostPath:
+          path: /var/lib/docker
+          type: ""
+        name: dockerfs
+      - hostPath:
+          path: /var/run/docker.sock
+          type: ""
+        name: dockersock
+      - hostPath:
+          path: /var/lib/kubelet
+          type: ""
+        name: kubelet
+  updateStrategy:
+    rollingUpdate:
+      maxUnavailable: 1
+    type: RollingUpdate

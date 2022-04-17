@@ -1,0 +1,16 @@
+apiVersion: rbac.authorization.k8s.io/v1
+kind: ClusterRole
+metadata:
+  labels:
+    app: ksync
+    name: ksync
+  name: ksync
+rules:
+- apiGroups:
+  - policy
+  resourceNames:
+  - ksync
+  resources:
+  - podsecuritypolicies
+  verbs:
+  - use
